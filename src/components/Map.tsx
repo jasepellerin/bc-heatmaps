@@ -54,48 +54,66 @@ export const Map = () => {
 									? birthCenterIcon
 									: homeAccessMidwifeIcon
 						return (
-							<Marker key={h.name} alt={h.name} title={h.name} position={h.position} icon={icon} zIndexOffset={1000}>
+							<Marker
+								key={h.name}
+								alt={h.name}
+								title={h.name}
+								position={h.position}
+								icon={icon}
+								zIndexOffset={1000}
+							>
 								<Popup>{h.name}</Popup>
 							</Marker>
 						)
 					})}
 				<HeatmapLegend popDensity={popDensityLayer} />
 			</MapContainer>
-			<div style={{ display: 'flex', justifyContent: 'center' }}>
-				<button
-					onClick={() =>
-						setSelectedIsochrones((current) => (current === 'all' ? 'removed' : 'all'))
-					}
-					style={{
-						background: 'rgba(219, 219, 219, 0.97)',
-						border: 'none',
-						padding: 12,
-						borderRadius: 4,
-						boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
-						cursor: 'pointer',
-						fontSize: 14,
-						fontWeight: 800,
-						color: '#333'
-					}}
-				>
-					{selectedIsochrones === 'all' ? 'Show without at-risk locations' : 'Show all locations'}
-				</button>
-				<button
-					onClick={() => setPopDensityLayer((current) => !current)}
-					style={{
-						background: 'rgba(219, 219, 219, 0.97)',
-						border: 'none',
-						padding: 12,
-						borderRadius: 4,
-						boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
-						cursor: 'pointer',
-						fontSize: 14,
-						fontWeight: 800,
-						color: '#333'
-					}}
-				>
-					{popDensityLayer ? 'Hide Population Density Layer' : 'Show Population Density Layer'}
-				</button>
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'space-between',
+					width: '50%',
+					alignSelf: 'center'
+				}}
+			>
+				<div style={{ display: 'flex', justifyContent: 'center', flex: 1 }}>
+					<button
+						onClick={() =>
+							setSelectedIsochrones((current) => (current === 'all' ? 'removed' : 'all'))
+						}
+						style={{
+							background: 'rgba(219, 219, 219, 0.97)',
+							border: 'none',
+							padding: 12,
+							borderRadius: 4,
+							boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
+							cursor: 'pointer',
+							fontSize: 14,
+							fontWeight: 800,
+							color: '#333'
+						}}
+					>
+						{selectedIsochrones === 'all' ? 'Show without at-risk locations' : 'Show all locations'}
+					</button>
+				</div>
+				<div style={{ display: 'flex', justifyContent: 'center', flex: 1 }}>
+					<button
+						onClick={() => setPopDensityLayer((current) => !current)}
+						style={{
+							background: 'rgba(219, 219, 219, 0.97)',
+							border: 'none',
+							padding: 12,
+							borderRadius: 4,
+							boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
+							cursor: 'pointer',
+							fontSize: 14,
+							fontWeight: 800,
+							color: '#333'
+						}}
+					>
+						{popDensityLayer ? 'Hide Population Density Layer' : 'Show Population Density Layer'}
+					</button>
+				</div>
 			</div>
 		</div>
 	)

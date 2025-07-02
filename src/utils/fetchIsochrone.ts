@@ -108,7 +108,7 @@ const mergeIsochrones = () => {
 }
 
 const main = async () => {
-	await fetchIsochronesAllHospitals(false)
+	await fetchIsochronesAllHospitals(true)
 	await mergeIsochrones()
 }
 

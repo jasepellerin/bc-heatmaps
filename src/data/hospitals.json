@@ -945,6 +945,7 @@
     "postcode": "97355",
     "county license expiry license": "LINN 12/31/25 07-1613",
     "type": "birthing center",
+    "willBeRemoved": true,
     "position": [
       44.5539133,
       -122.9158349
